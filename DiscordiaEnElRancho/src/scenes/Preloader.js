@@ -9,20 +9,20 @@ export class Preloader extends Scene
 
     init ()
     {
-        //  We loaded this image in our Boot Scene, so we can display it here
-        this.add.image(512, 384, 'fondo');
+        // Cargamos esta imagen en nuestra escena de inicio, para que podamos mostrarla aquí.
+        this.add.image(960, 540, 'fondo');
 
-        //  A simple progress bar. This is the outline of the bar.
-        this.add.rectangle(512, 384, 468, 32).setStrokeStyle(1, 0xffffff);
+        // Una barra de progreso simple. Este es el contorno de la barra.
+        this.add.rectangle(960, 540, 800, 100).setStrokeStyle(2, 0xffffff);
 
-        //  This is the progress bar itself. It will increase in size from the left based on the % of progress.
-        const bar = this.add.rectangle(512-230, 384, 4, 28, 0x7FFF00);
+        //  Esta es la barra de progreso en sí. Aumentará de tamaño desde la izquierda según el porcentaje de progreso.
+        const bar = this.add.rectangle(960, 540, 800, 100, 0x7FFF00);
 
-        //  Use the 'progress' event emitted by the LoaderPlugin to update the loading bar
+        // Usa el evento 'progreso' emitido por LoaderPlugin para actualizar la barra de carga
         this.load.on('progress', (progress) => {
 
-            //  Update the progress bar (our bar is 464px wide, so 100% = 464px)
-            bar.width = 4 + (460 * progress);
+            // Actualiza la barra de progreso (nuestra barra tiene 800 px de ancho, por lo que 100% =800 px)
+            bar.width = 4 + (800 * progress);
 
         });
     }
@@ -34,8 +34,7 @@ export class Preloader extends Scene
         this.load.image("cultivo", "./public/assets/cultivo.png");
         this.load.spritesheet("jugador1", "./public/assets/jugador1.png", {frameWidth: 64, frameHeight: 64});
         this.load.spritesheet("jugador2", "./public/assets/jugador2.png", {frameWidth: 64, frameHeight: 64});
-        this.load.spritesheet("jugador1Ataca", "./public/assets/jugador1Ataque.png", {frameWidth: 64, frameHeight: 64});
-        this.load.spritesheet("jugador2Ataca", "./public/assets/jugador2Ataque.png", {frameWidth: 64, frameHeight: 64});
+        this.load.image("enemigo1", "./public/assets/enemigo1.png");
     
         
     }
