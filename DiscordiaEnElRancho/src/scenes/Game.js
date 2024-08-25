@@ -13,6 +13,7 @@ export class Game extends Scene
           // create game objects
         this.add.image(960, 540, "fondo");
        
+        //hhhgf
 
         //cultivo
         this.cultivo = this.physics.add.image(960,540,"cultivo")
@@ -39,8 +40,7 @@ export class Game extends Scene
     this.CreaAnimaciones("ataqueArriva",56,63,10,0)
     this.jugador1.anims.play(this.direccionapunta, true); 
 
-    this.CreaAnimaciones("iddle",32,34,5,-1)
-
+  
       this.grupoenemigos= this.physics.add.group()
 
       this.time.addEvent({ // crea un evento que llama al metodo generar enemigo cada un segundo para que cree un enemigo
@@ -80,11 +80,6 @@ export class Game extends Scene
       }
       else 
       { 
-        console.log(this.jugador1.anims.currentAnim.key)
-          /*if (!this.jugador1.anims.isPlaying && (this.jugador1.anims.currentAnim.key == "caminararriva" ||this.jugador1.anims.currentAnim.key == "caminarderecha"||this.jugador1.anims.currentAnim.key == "caminarizquierda"||this.jugador1.anims.currentAnim.key == "caminarabajo")) {
-             this.moverPersonajex(0,"iddle")
-            
-          }*/
           this.jugador1.setVelocity(0,0) 
       }
 
@@ -118,12 +113,10 @@ export class Game extends Scene
   }
 
   reproduceAtaque()  {
-    this.enAtaque = true; // pongo la variable en ataque como activa
-    this.jugador1.anims.play(this.direccionapunta, true).on('animationcomplete', () => {
-      this.enAtaque = false; ///reprodusco la animacion y luego cuando se completa la animacion la variable enataque se desactiva
-    });
+    this.jugador1.anims.play(this.direccionapunta, true)
+    };
 
-}
+
 
   generarEnemigo() { ///metodo para crear enemigos en lugares aleatorios
     const posisiones = [
@@ -145,18 +138,16 @@ export class Game extends Scene
     
  
     colisionjugador1(jugador1,enemigo) {
-     console.log(this.enAtaque)
-      if (this.enAtaque == true){
       enemigo.destroy();
-     }
+     
       
 
   }
    
 
 
-
 }
+
 
   /*if(this.direccionapunta=="ataqueIzquierda") {
     var t=this.physics.add.sprite(this.jugador1.x,this.jugador1.y,"cultivo")
